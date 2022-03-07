@@ -3,6 +3,8 @@ import { useQuery } from 'react-query';
 
 const GetCats = (props) => {
 
+    //2 minutes in milliseconds
+    const updateTime = 120000;
 
     const formatDate = (dateData) => {
         //format dates without leading zeroes yet
@@ -14,6 +16,7 @@ const GetCats = (props) => {
     };
 
     const getFacts = () => {
+        console.log('fetch cat data');
         //change login to production link later
         return fetch('https://cat-fact.herokuapp.com/facts', {
             method: 'GET',
@@ -27,7 +30,7 @@ const GetCats = (props) => {
             });
     }
     
-    const { isLoading, isError, data, error } = useQuery('catfacts', getFacts);
+    const { isLoading, isError, data, error } = useQuery('catfacts', getFacts, {refetchInterval: updateTime, refetchIntervalInBackground: true});
 
     if (isLoading) {
         return <span>Loading...</span>

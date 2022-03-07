@@ -3,9 +3,9 @@ const Main = (props) => {
 
 
     return (
-        <div className="Main">
+        <main>
             
-        </div>
+        </main>
         
     );
 };

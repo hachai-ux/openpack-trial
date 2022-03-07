@@ -3,9 +3,9 @@ const Header = (props) => {
 
 
     return (
-        <div className="Header">
+        <header>
             
-        </div>
+        </header>
         
     );
 };

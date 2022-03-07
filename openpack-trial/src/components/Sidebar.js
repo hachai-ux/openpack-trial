@@ -3,9 +3,9 @@ const Sidebar = (props) => {
 
 
     return (
-        <div className="Sidebar">
+        <nav>
             
-        </div>
+        </nav>
         
     );
 };

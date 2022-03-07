@@ -15,18 +15,12 @@ const GetCats = (props) => {
 
     const getFacts = () => {
         //change login to production link later
-        fetch('https://cat-fact.herokuapp.com/facts', {
+        return fetch('https://cat-fact.herokuapp.com/facts', {
             method: 'GET',
             mode: 'cors'
         })
             .then(response => {
                 return response.json();
-            })
-            .then(result => {
-                
-               
-                console.log('Success:', result);
-
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -43,11 +37,11 @@ const GetCats = (props) => {
         return <span>Error: {error.message}</span>
     }
     
+    if (error) return 'An error has occurred: ' + error.message
 
-    let catFactsList;
-    if (data) {
-        console.log(data);
-        catFactsList = data.map((fact) => {
+  
+       
+        const catFactsList = data.map((fact) => {
             return <li key={nanoid()} className="bg-white w-80 rounded-md my-5 mx-5 py-5 px-5">
                 <p>{fact.text}</p>
                 <p className="text-sm text-slate-400 pt-1">{formatDate(fact.createdAt)}</p></li>
@@ -55,7 +49,7 @@ const GetCats = (props) => {
      
         });
     
-    }
+    
 
 
         return (

@@ -44,14 +44,14 @@ const GetCats = (props) => {
 
   
     const catFactsList = catFacts.map((fact) => {
-        return <li key={nanoid()}>
+        return <li key={nanoid()} className="bg-white w-80 rounded-md my-5 mx-5 py-5 px-5">
             <p>{fact.text}</p>
-            <p>{formatDate(fact.createdAt)}</p></li>
+            <p className="text-sm text-slate-400 pt-1">{formatDate(fact.createdAt)}</p></li>
 })
 
 
     return (
-        <div className="get-cats">
+        <div className="get-cat">
             <ul>
                 {catFactsList}
             </ul>

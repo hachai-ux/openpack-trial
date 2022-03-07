@@ -6,6 +6,15 @@ const GetCats = (props) => {
 
     const [catFacts, setCatFacts] = useState([]);
 
+    const formatDate = (dateData) => {
+        //format dates without leading zeroes yet
+        const date = new Date(dateData);
+        const [day, month, year, hour, minute] = [date.getDate(), date.getMonth(), date.getFullYear(), date.getHours(), date.getMinutes()];
+        //const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+        const newDateString = day + '.' + month + '.' + year + ' - ' + hour + ':' + minute;
+        return newDateString;
+    };
+
     useEffect(() => {
 
         console.log('foo');
@@ -37,7 +46,7 @@ const GetCats = (props) => {
     const catFactsList = catFacts.map((fact) => {
         return <li key={nanoid()}>
             <p>{fact.text}</p>
-            <p>{fact.createdAt}</p></li>
+            <p>{formatDate(fact.createdAt)}</p></li>
 })
 
 

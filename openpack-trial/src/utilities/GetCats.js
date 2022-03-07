@@ -1,6 +1,10 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { nanoid } from 'nanoid'
 
 const GetCats = (props) => {
+
+
+    const [catFacts, setCatFacts] = useState([]);
 
     useEffect(() => {
 
@@ -17,6 +21,7 @@ const GetCats = (props) => {
                 })
                 .then(result => {
                 
+                    setCatFacts(result);
                     console.log('Success:', result);
 
                 })
@@ -29,12 +34,18 @@ const GetCats = (props) => {
     }, []);
 
   
-
+    const catFactsList = catFacts.map((fact) => {
+        return <li key={nanoid()}>
+            <p>{fact.text}</p>
+            <p>{fact.createdAt}</p></li>
+})
 
 
     return (
         <div className="get-cats">
-        
+            <ul>
+                {catFactsList}
+            </ul>
         </div>
         
     );

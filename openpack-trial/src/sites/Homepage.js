@@ -7,7 +7,7 @@ const Homepage = (props) => {
 
 
     return (
-        <div className="Homepage">
+        <div className="Homepage width-12">
             <Header/>
             <Main />
             <Sidebar />

@@ -6,8 +6,8 @@ const Sidebar = (props) => {
 
 
     return (
-        <nav>
-            <ul>
+        <nav className="h-screen fixed top-0 width-12">
+            <ul className="list-none">
                 <li>
                     <a href='#'></a>
                     <HomeIcon className="h-5 w-5 text-blue-500" />

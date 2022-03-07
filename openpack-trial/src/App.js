@@ -1,3 +1,5 @@
+import './index.css';
+
 import Homepage from './sites/Homepage';
 
 function App() {

@@ -9,44 +9,44 @@ const Sidebar = (props) => {
         <nav className="bg-white h-screen fixed top-0 width-12 border-r-2 pr-20 pt-14 pl-10">
             <ul className="list-none">
                 <li>
-                    <a href='#' className="flex items-center px-2 py-2">
+                    <a href='/#' className="flex items-center px-2 py-2">
                     <HomeIcon className="h-5 w-5 text-gray-600 pr-1" />
                         <span>Cockpit</span>
                         </a>
                 </li>
                 <li>
-                    <a href='#' className="flex items-center px-2 py-2">
+                    <a href='/#' className="flex items-center px-2 py-2">
                     <OfficeBuildingIcon className="h-5 w-5 text-gray-600 pr-1" />
                         <span>Digital Factory</span>
                         </a>
                 </li>
                 <li>
-                    <a href='#' className="flex items-center px-2 py-2">
+                    <a href='/#' className="flex items-center px-2 py-2">
                     <ShoppingCartIcon className="h-5 w-5 text-gray-600 pr-1" />
                         <span>Market Place</span>
                         </a>
                 </li>
                 <li>
-                    <a href='#' className="flex items-center px-2 py-2">
+                    <a href='/#' className="flex items-center px-2 py-2">
                     <HandIcon className="h-5 w-5 text-gray-600 pr-1" />
                         <span>Service Store</span>
                         </a>
                 </li>
                 <li>
-                    <a href='#' className="flex items-center px-2 py-2">
+                    <a href='/#' className="flex items-center px-2 py-2">
                     <NewspaperIcon className="h-5 w-5 text-gray-600 pr-1" />
                         <span>News</span>
                         </a>
                 </li>
                 <li>
-                    <a href='#' className="flex items-center px-2 py-2">
+                    <a href='/#' className="flex items-center px-2 py-2">
                     <CreditCardIcon className="h-5 w-5 text-gray-600 pr-1" />
                         <span>Finance</span>
                         </a>
                 </li>
                 <hr />
                 <li>
-                    <a href='#' className="flex items-center px-2 py-2">
+                    <a href='/#' className="flex items-center px-2 py-2">
                     <QuestionMarkCircleIcon className="h-5 w-5 text-gray-600 pr-1" />
                         <span>Help</span>
                         </a>

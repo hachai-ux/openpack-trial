@@ -1,10 +1,8 @@
-import { useState, useEffect } from 'react';
-import { nanoid } from 'nanoid'
+import { nanoid } from 'nanoid';
+import { useQuery } from 'react-query';
 
 const GetCats = (props) => {
 
-
-    const [catFacts, setCatFacts] = useState([]);
 
     const formatDate = (dateData) => {
         //format dates without leading zeroes yet
@@ -15,49 +13,60 @@ const GetCats = (props) => {
         return newDateString;
     };
 
-    useEffect(() => {
-
-        console.log('foo');
-
-        const getFacts = () => {
-            //change login to production link later
-            fetch('https://cat-fact.herokuapp.com/facts', {
-                method: 'GET',
-                mode: 'cors'
+    const getFacts = () => {
+        //change login to production link later
+        fetch('https://cat-fact.herokuapp.com/facts', {
+            method: 'GET',
+            mode: 'cors'
+        })
+            .then(response => {
+                return response.json();
             })
-                .then(response => {
-                    return response.json();
-                })
-                .then(result => {
+            .then(result => {
                 
-                    setCatFacts(result);
-                    console.log('Success:', result);
+               
+                console.log('Success:', result);
 
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        }
-        getFacts();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+    
+    const { isLoading, isError, data, error } = useQuery('catfacts', getFacts);
+
+    if (isLoading) {
+        return <span>Loading...</span>
+    }
+ 
+    if (isError) {
+        return <span>Error: {error.message}</span>
+    }
+    
+
+    let catFactsList;
+    if (data) {
+        console.log(data);
+        catFactsList = data.map((fact) => {
+            return <li key={nanoid()} className="bg-white w-80 rounded-md my-5 mx-5 py-5 px-5">
+                <p>{fact.text}</p>
+                <p className="text-sm text-slate-400 pt-1">{formatDate(fact.createdAt)}</p></li>
         
-    }, []);
-
-  
-    const catFactsList = catFacts.map((fact) => {
-        return <li key={nanoid()} className="bg-white w-80 rounded-md my-5 mx-5 py-5 px-5">
-            <p>{fact.text}</p>
-            <p className="text-sm text-slate-400 pt-1">{formatDate(fact.createdAt)}</p></li>
-})
+     
+        });
+    
+    }
 
 
-    return (
-        <div className="get-cat">
-            <ul>
-                {catFactsList}
-            </ul>
-        </div>
+        return (
+            <div className="get-cat">
+                <ul>
+                    {catFactsList}
+                </ul>
+            </div>
         
-    );
-};
+        );
+    };
+
 
 export default GetCats; 
